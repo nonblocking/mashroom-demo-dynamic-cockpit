@@ -1,0 +1,41 @@
+{
+    "name": "mashroom-demo-dynamic-cockpit",
+    "private": true,
+    "dependencies": {},
+    "devDependencies": {
+        "@mashroom/mashroom": "^1.9.2",
+        "@mashroom/mashroom-portal": "^1.9.2",
+        "@babel/core": "^7.16.7",
+        "@babel/cli": "^7.16.7",
+        "@babel/preset-env": "^7.16.7",
+        "@babel/preset-react": "^7.16.7",
+        "@babel/preset-typescript": "^7.16.7",
+        "@babel/plugin-transform-runtime": "^7.16.7",
+        "typescript": "^4.5.4",
+        "@types/express": "^4.17.13",
+        "@typescript-eslint/eslint-plugin": "^5.9.0",
+        "@typescript-eslint/parser": "^5.9.0",
+        "webpack": "^5.65.0",
+        "webpack-cli": "^4.9.1",
+        "babel-loader": "^8.2.3",
+        "css-loader": "^6.5.1",
+        "node-sass": "^7.0.1",
+        "sass-loader": "^12.4.0",
+        "style-loader": "^3.3.1",
+        "eslint-webpack-plugin": "^3.1.1",
+        "eslint": "^8.0.1",
+        "eslint-plugin-import": "^2.25.4",
+        "eslint-plugin-jest": "^25.3.4",
+        "eslint-plugin-jsx-a11y": "^6.5.1",
+        "eslint-plugin-react": "^7.28.0",
+        "jest": "^27.4.7",
+        "lerna": "^4.0.0"
+    },
+    "scripts": {
+        "setup": "npm install && lerna bootstrap",
+        "lint": "lerna run lint",
+        "type-check": "lerna run type-check",
+        "test": "lerna run test",
+        "build": "npm run lint && npm run type-check && npm run test && lerna run build"
+    }
+}

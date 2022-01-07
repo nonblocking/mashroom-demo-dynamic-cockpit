@@ -1,1 +1,3 @@
-# mashroom-demo-dynamic-cockpit
+
+# Mashoom Dynamic Cockpit Demo
+
