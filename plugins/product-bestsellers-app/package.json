@@ -1,0 +1,18 @@
+{
+    "name": "product-bestsellers-app",
+    "version": "1.0.0",
+    "private": true,
+    "devDependencies": {
+        "mock-backend": "1.0.0",
+        "react": "^17.0.2",
+        "react-dom": "^17.0.2",
+        "@types/react": "^17.0.38",
+        "@types/react-dom": "^17.0.11"
+    },
+    "scripts": {
+        "lint": "eslint --fix src",
+        "type-check": "tsc --noEmit",
+        "dev": "webpack serve --hot --mode development",
+        "build": "webpack --mode production"
+    }
+}

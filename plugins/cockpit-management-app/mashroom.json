@@ -1,0 +1,27 @@
+{
+    "$schema": "./../../node_modules/@mashroom/mashroom-json-schemas/schemas/mashroom-plugins.json",
+    "devModeBuildScript": "build",
+    "plugins": [
+        {
+            "name": "Mashroom Dynamic Cockpit Demo Cockpit Management App",
+            "title": {
+                "en": "Cockpit Management",
+                "de": "Cockpit Management"
+            },
+            "category": "Demo",
+            "type": "portal-app",
+            "bootstrap": "startCockpitManagementApp",
+            "resources": {
+                "js": ["bundle.js"]
+            },
+            "defaultConfig": {
+                "resourcesRoot": "./dist",
+                "restProxies": {
+                    "backend": {
+                        "targetUri": "http://localhost:5050/backend/api"
+                    }
+                }
+            }
+        }
+    ]
+}

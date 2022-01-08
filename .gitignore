@@ -3,6 +3,8 @@ node_modules/
 dist/
 lib/
 test-data/
+test/test-server/data
+test/test-server/log
 
 log/
 *.log
@@ -12,5 +14,4 @@ tmp/
 *.iml
 
 .DS_Store
-.merlin
 

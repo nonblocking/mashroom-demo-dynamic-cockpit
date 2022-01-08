@@ -1,0 +1,37 @@
+{
+    "$schema": "./../../node_modules/@mashroom/mashroom-json-schemas/schemas/mashroom-plugins.json",
+    "devModeBuildScript": "build",
+    "plugins": [
+        {
+            "name": "Mashroom Dynamic Cockpit Demo Bestsellers App",
+            "title": {
+                "en": "Bestsellers",
+                "de": "Bestseller"
+            },
+            "category": "Demo",
+            "type": "portal-app",
+            "bootstrap": "startBestSellersApp",
+            "resources": {
+                "js": ["bundle.js"]
+            },
+            "defaultConfig": {
+                "metaInfo": {
+                    "viewType": "Standalone",
+                    "utterances": {
+                        "en": [
+                            "products",
+                            "most",
+                            "leading"
+                        ]
+                    }
+                },
+                "resourcesRoot": "./dist",
+                "restProxies": {
+                    "backend": {
+                        "targetUri": "http://localhost:5050/backend/api"
+                    }
+                }
+            }
+        }
+    ]
+}

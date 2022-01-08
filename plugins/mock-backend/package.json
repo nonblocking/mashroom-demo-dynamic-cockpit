@@ -1,0 +1,17 @@
+{
+    "name": "mock-backend",
+    "version": "1.0.0",
+    "private": true,
+    "dependencies": {
+
+    },
+    "devDependencies": {
+        "faker": "^5.5.3"
+    },
+    "scripts": {
+        "generate-testdata": "node generate-testdata.js",
+        "build": "babel -x .ts src -d ./dist",
+        "type-check": "tsc --noEmit",
+        "dev": "nodemon --watch src -e ts --exec \"npm run build && node dist/dev_server.js\""
+    }
+}
