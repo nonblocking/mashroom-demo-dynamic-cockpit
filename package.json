@@ -5,6 +5,7 @@
     "devDependencies": {
         "@mashroom/mashroom": "^1.9.2",
         "@mashroom/mashroom-portal": "^1.9.2",
+        "@mashroom/mashroom-background-jobs": "^1.9.2",
         "@mashroom/mashroom-json-schemas": "^1.9.2",
         "@babel/core": "^7.16.7",
         "@babel/cli": "^7.16.7",

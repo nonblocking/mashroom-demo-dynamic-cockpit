@@ -1,0 +1,17 @@
+{
+    "$schema": "./../../node_modules/@mashroom/mashroom-json-schemas/schemas/mashroom-plugins.json",
+    "devModeBuildScript": "build",
+    "plugins": [
+        {
+            "name": "Mashroom Dynamic Cockpit Demo Startup Job",
+            "type": "background-job",
+            "bootstrap": "./dist/mashroom-bootstrap.js",
+            "requires": [
+                "Mashroom Portal WebApp"
+            ],
+            "defaultConfig": {
+                "cronSchedule": "*/1 * * * * *"
+            }
+        }
+    ]
+}

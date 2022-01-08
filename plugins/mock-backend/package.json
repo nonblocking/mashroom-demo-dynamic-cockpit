@@ -11,6 +11,7 @@
     "scripts": {
         "generate-testdata": "node generate-testdata.js",
         "build": "babel -x .ts src -d ./dist",
+        "lint": "eslint --fix src",
         "type-check": "tsc --noEmit",
         "dev": "nodemon --watch src -e ts --exec \"npm run build && node dist/dev_server.js\""
     }
