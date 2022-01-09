@@ -21,10 +21,11 @@ function main() {
     for (let i = 0; i < NUM_PRODUCTS; i++) {
         products.push(createProduct(String(i + 1)));
     }
+    let orderId = 1;
     for (let customer of customers) {
         const numOrders = Math.trunc(Math.random() * MAX_ORDERS_PER_CUSTOMER + 1);
         for (let i = 0; i < numOrders; i++) {
-            orders.push(createOrder(String(i + 1), customer.customerId, products));
+            orders.push(createOrder(String(orderId++), customer.customerId, products));
         }
     }
     for (let i = 0; i < NUM_BESTSELLERS; i++) {

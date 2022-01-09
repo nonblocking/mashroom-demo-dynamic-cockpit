@@ -6,8 +6,10 @@
         "fs-extra": "^10.0.0"
     },
     "devDependencies": {
+        "cors": "^2.8.5",
         "faker": "^5.5.3",
-        "@types/fs-extra": "^9.0.13"
+        "@types/fs-extra": "^9.0.13",
+        "@types/cors": "^2.8.12"
     },
     "scripts": {
         "generate-testdata": "node generate-testdata.js",
