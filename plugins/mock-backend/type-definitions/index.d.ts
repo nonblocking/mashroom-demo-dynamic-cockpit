@@ -1,25 +1,40 @@
 
 
 export type SearchResult = {
-    hits: Array<SearchHit>;
+    hits: SearchHits;
     total: number;
 }
 
-export type SearchHit = SearchHitCustomer | SearchHitProduct | SearchHitOrder;
+export type SearchHit = SearchHitCustomer | SearchHitProduct;
+export type SearchHits = Array<SearchHit>;
 
 export type SearchHitCustomer = {
     type: "Customer";
-    data: Customer;
+    customerId: string;
+    firstName: string;
+    lastName: string;
+    birthDate: string;
+    prefix: string | undefined;
+    suffix: string | undefined;
+    city: string;
+    zipCode: string;
+    streetAddress: string;
 }
 
 export type SearchHitProduct = {
     type: "Product";
-    data: Product;
+    productId: string;
+    name: string;
+    color: string;
+    material: string;
 }
 
 export type SearchHitOrder = {
     type: "Order";
-    data: Order;
+    orderId: string;
+    customerId: string;
+    date: string;
+    totalPrice: number;
 }
 
 export type Customer = {
@@ -27,6 +42,7 @@ export type Customer = {
     firstName: string;
     lastName: string;
     gender: string;
+    birthDate: string;
     prefix: string | undefined;
     suffix: string | undefined;
     address: {
@@ -53,6 +69,7 @@ export type Product = {
 export type Order = {
     orderId: string;
     customerId: string;
+    date: string;
     totalPrice: number;
     positions: Array<OrderPos>
 }
