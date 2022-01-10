@@ -1,4 +1,30 @@
 
-.App {
+@import "../../common-styles";
 
+.App {
+    padding: 20px;
+}
+
+.BestsellersHeader {
+    font-size: 1.3em;
+    font-family: $FONT_HEADER;
+    margin-bottom: 20px;
+}
+
+.Bestsellers {
+    display: flex;
+
+    &>div {
+        width: 50%;
+    }
+}
+
+.Bestseller {
+    display: flex;
+    margin-bottom: 5px;
+
+    &>div:first-child {
+        font-weight: bold;
+        margin-right: 10px;
+    }
 }

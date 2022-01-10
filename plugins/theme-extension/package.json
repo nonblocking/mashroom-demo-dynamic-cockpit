@@ -1,0 +1,10 @@
+{
+    "name": "theme-extension",
+    "version": "1.0.0",
+    "private": true,
+    "scripts": {
+        "build": "babel -x .ts src -d ./dist && sass --style compressed src/cockpit-style.scss dist/cockpit-style.css",
+        "lint": "eslint --fix src",
+        "type-check": "tsc --noEmit"
+    }
+}

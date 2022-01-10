@@ -16,8 +16,10 @@
             },
             "defaultConfig": {
                 "metaInfo": {
-                    "viewType": "Details",
-                    "displays": "Product"
+                    "demoCockpit": {
+                        "viewType": "Details",
+                        "entity": "Product"
+                    }
                 },
                 "resourcesRoot": "./dist",
                 "restProxies": {

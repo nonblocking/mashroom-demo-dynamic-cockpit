@@ -16,13 +16,15 @@
             },
             "defaultConfig": {
                 "metaInfo": {
-                    "viewType": "Standalone",
-                    "utterances": {
-                        "en": [
-                            "products",
-                            "most",
-                            "leading"
-                        ]
+                    "demoCockpit": {
+                        "viewType": "Standalone",
+                        "utterances": {
+                            "en": [
+                                "products",
+                                "most",
+                                "leading"
+                            ]
+                        }
                     }
                 },
                 "resourcesRoot": "./dist",

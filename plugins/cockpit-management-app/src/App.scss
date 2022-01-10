@@ -2,3 +2,13 @@
 .App {
 
 }
+
+.SearchBar {
+    width: 450px;
+    margin: 10px auto;
+
+    input {
+        width: 100%;
+        font-size: 1.1em;
+    }
+}

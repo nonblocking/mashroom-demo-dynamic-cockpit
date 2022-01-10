@@ -2,7 +2,7 @@
 import {customers, products} from '../../test_data';
 
 import type {Request, Response} from 'express';
-import type {SearchHits, SearchResult} from "../../../type-definitions";
+import type {SearchHits, SearchResult} from '../../../type-definitions';
 
 export default async (req: Request, res: Response) => {
     const {q, skip: skipParam, limit: limitParam} = req.query as {q: string | undefined, skip: string | undefined, limit: string | undefined};
@@ -19,7 +19,7 @@ export default async (req: Request, res: Response) => {
                 total ++;
                 if (total >= skip && hits.length < limit) {
                     hits.push({
-                        type: "Customer",
+                        type: 'Customer',
                         customerId,
                         firstName,
                         lastName,
@@ -38,7 +38,7 @@ export default async (req: Request, res: Response) => {
                 total ++;
                 if (total >= skip && hits.length < limit) {
                     hits.push({
-                        type: "Product",
+                        type: 'Product',
                         productId,
                         name,
                         color,

@@ -77,6 +77,7 @@ export type Order = {
 export type OrderPos = {
     orderPos: number;
     productId: string;
+    productName: string;
     price: number;
     quantity: number;
 }

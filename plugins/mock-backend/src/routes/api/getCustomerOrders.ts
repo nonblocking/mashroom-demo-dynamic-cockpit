@@ -2,7 +2,7 @@
 import {orders} from '../../test_data';
 
 import type {Request, Response} from 'express';
-import {SearchHitOrder} from "../../../type-definitions";
+import {SearchHitOrder} from '../../../type-definitions';
 
 export default async (req: Request, res: Response) => {
     const {customerId} = req.params;

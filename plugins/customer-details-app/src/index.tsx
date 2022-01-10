@@ -9,7 +9,11 @@ const bootstrap: MashroomPortalAppPluginBootstrapFunction = (portalAppHostElemen
     const { appConfig: { customerId }, restProxyPaths: { backend } } = portalAppSetup;
     const { messageBus } = clientServices;
 
-    ReactDOM.render(<App customerId={customerId} backendApiBasePath={backend} />, portalAppHostElement);
+    ReactDOM.render(<App
+        customerId={customerId}
+        messageBus={messageBus}
+        backendApiBasePath={backend}
+    />, portalAppHostElement);
 
     return {
         willBeRemoved: () => {

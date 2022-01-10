@@ -1,0 +1,21 @@
+
+$FONT_ICON: 'Font Awesome 5 Free';
+$FONT_DEFAULT: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$FONT_HEADER: 'Lucida Grande', 'Lucida Sans Unicode', sans-serif;
+
+$COLOR_PRIMARY: #504B88;
+$COLOR_PRIMARY_LIGHT: #655fa7; // 10%
+$COLOR_PRIMARY_DARK: #3d3967; // 10%
+$COLOR_PRIMARY_EXTRA_LIGHT: #f4f3f8; // 55%
+
+%OpenAppButton {
+    padding: 6px 10px;
+    cursor: pointer;
+
+    span:after {
+        font-family: $FONT_ICON;
+        font-weight: bold;
+        content: "\f35d";
+        margin-left: 10px;
+    }
+}

@@ -1,4 +1,35 @@
 
-.App {
+@import "../../common-styles";
 
+.App {
+    padding: 20px;
+}
+
+.OrderDetails {
+
+}
+
+.OrderDetailsHeader {
+    display: flex;
+
+    div:first-child {
+        flex-grow: 2;
+    }
+
+    margin-bottom: 20px;
+}
+
+.OrderId {
+    font-size: 1.3em;
+    font-family: $FONT_HEADER;
+    margin-bottom: 5px;
+}
+
+.OrderPrice {
+    font-size: 1.8em;
+    font-family: $FONT_HEADER;
+}
+
+.OrderCustomer {
+    font-weight: bold;
 }

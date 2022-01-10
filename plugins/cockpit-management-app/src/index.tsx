@@ -7,9 +7,13 @@ import type {MashroomPortalAppPluginBootstrapFunction} from '@mashroom/mashroom-
 
 const bootstrap: MashroomPortalAppPluginBootstrapFunction = (portalAppHostElement, portalAppSetup, clientServices) => {
     const { restProxyPaths: { backend } } = portalAppSetup;
-    const { messageBus } = clientServices;
+    const { messageBus, portalAppService } = clientServices;
 
-    ReactDOM.render(<App backendApiBasePath={backend} />, portalAppHostElement);
+    ReactDOM.render(<App
+        backendApiBasePath={backend}
+        messageBus={messageBus}
+        portalAppService={portalAppService}
+    />, portalAppHostElement);
 
     return {
         willBeRemoved: () => {

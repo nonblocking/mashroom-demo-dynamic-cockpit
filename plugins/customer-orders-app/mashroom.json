@@ -16,8 +16,11 @@
             },
             "defaultConfig": {
                 "metaInfo": {
-                    "viewType": "Details",
-                    "displays": "Customer"
+                    "demoCockpit": {
+                        "viewType": "List",
+                        "entity": "Customer",
+                        "listEntity": "Order"
+                    }
                 },
                 "resourcesRoot": "./dist",
                 "restProxies": {

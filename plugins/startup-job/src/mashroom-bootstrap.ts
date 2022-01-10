@@ -4,7 +4,7 @@ import {nanoid} from 'nanoid';
 import type {MashroomPluginContext} from '@mashroom/mashroom/type-definitions';
 import type {MashroomPortalService, MashroomPortalPage, MashroomPortalAppInstance} from '@mashroom/mashroom-portal/type-definitions';
 import type {MashroomBackgroundJobPluginBootstrapFunction} from '@mashroom/mashroom-background-jobs/type-definitions';
-import {MashroomPortalPageRef} from "@mashroom/mashroom-portal/type-definitions/api";
+import {MashroomPortalPageRef} from '@mashroom/mashroom-portal/type-definitions/api';
 
 let executed = false;
 
@@ -19,8 +19,6 @@ const backgroundJob = (pluginContext: MashroomPluginContext) => {
     executed = true;
 
     setTimeout(async () => {
-        // TODO
-
         const sites = await portalService.getSites();
         const defaultSite = sites[0];
 
@@ -36,19 +34,6 @@ const backgroundJob = (pluginContext: MashroomPluginContext) => {
                 pageId: 'cockpit',
                 description: 'Mashroom Cockpit Demo',
                 layout: 'Mashroom Portal Default Layouts 2 Columns with 1 Column Header',
-                extraCss: `
-#navigation {
-    display: none;
-}
-
-.portal-app-mashroom-dynamic-cockpit-demo-cockpit-management-app {
-    box-shadow: none;
-}
-
-.portal-app-mashroom-dynamic-cockpit-demo-cockpit-management-app .mashroom-portal-app-header {
-    display: none !important;
-}
-                `,
                 portalApps: {
                     'app-area1': [{
                         pluginName: cockpitManagerAppInstance.pluginName,

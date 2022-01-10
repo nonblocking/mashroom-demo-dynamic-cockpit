@@ -1,4 +1,16 @@
 
-.App {
+@import "../../common-styles";
 
+.App {
+    padding: 20px;
+}
+
+.OrdersHeader {
+    font-size: 1.3em;
+    font-family: $FONT_HEADER;
+    margin-bottom: 20px;
+}
+
+.OpenAppButton {
+   @extend %OpenAppButton;
 }

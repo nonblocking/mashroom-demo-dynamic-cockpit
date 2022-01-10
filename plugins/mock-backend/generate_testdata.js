@@ -23,7 +23,7 @@ function main() {
     }
     let orderId = 1;
     for (let customer of customers) {
-        const numOrders = Math.trunc(Math.random() * MAX_ORDERS_PER_CUSTOMER + 1);
+        const numOrders = Math.trunc(Math.random() * MAX_ORDERS_PER_CUSTOMER + 1) + 1;
         for (let i = 0; i < numOrders; i++) {
             orders.push(createOrder(String(orderId++), customer.customerId, products));
         }
@@ -83,6 +83,7 @@ function createOrder(orderId, customerId, products) {
         positions.push({
             orderPos: i + 1,
             productId: product.productId,
+            productName: product.name,
             price: product.price,
             quantity,
         });

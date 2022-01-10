@@ -30,9 +30,33 @@ export default ({backendApiBasePath}: Props) => {
     return (
         <div className={styles.App}>
             {bestsellers && (
-                <div>
-                    Bestsellers: {bestsellers.length}
-                </div>
+                <>
+                    <div className={styles.BestsellersHeader}>
+                        Best Sellers
+                    </div>
+                    <div className={styles.Bestsellers}>
+                        <div className={styles.FiveProducts}>
+                            {
+                                bestsellers.slice(0, 5).map((bs) => (
+                                    <div key={String(bs.rank)} className={styles.Bestseller}>
+                                        <div>#{bs.rank}</div>
+                                        <div>{bs.productName}</div>
+                                    </div>
+                                ))
+                            }
+                        </div>
+                        <div className={styles.FiveProducts}>
+                            {
+                                bestsellers.slice(5).map((bs) => (
+                                    <div key={String(bs.rank)} className={styles.Bestseller}>
+                                        <div>#{bs.rank}</div>
+                                        <div>{bs.productName}</div>
+                                    </div>
+                                ))
+                            }
+                        </div>
+                    </div>
+                </>
             )}
             {loading && (
                 <div className="mashroom-portal-app-loading">

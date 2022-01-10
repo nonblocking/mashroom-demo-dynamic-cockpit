@@ -1,4 +1,44 @@
 
+@import "../../common-styles";
+
 .App {
+    padding: 20px;
+}
+
+.CustomerName {
+    font-size: 1.3em;
+    font-family: $FONT_HEADER;
+}
+
+.CustomerBirthDate {
 
 }
+
+.Details {
+    margin-top: 10px;
+    display: flex;
+
+    div {
+        padding-right: 20px;
+    }
+
+    span {
+        display: inline-block;
+        width: 80px;
+    }
+}
+
+.DetailsHeader {
+    font-family: $FONT_HEADER;
+    font-weight: bold;
+    margin: 5px 0;
+}
+
+.Actions {
+    margin-top: 20px;
+}
+
+.OpenAppButton {
+    @extend %OpenAppButton;
+}
+

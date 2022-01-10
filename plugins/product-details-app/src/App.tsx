@@ -6,10 +6,11 @@ import {Product} from "mock-backend/type-definitions";
 
 type Props = {
     productId: string;
+    locale: string;
     backendApiBasePath: string;
 }
 
-export default ({productId, backendApiBasePath}: Props) => {
+export default ({productId, locale, backendApiBasePath}: Props) => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);
     const [product, setProduct] = useState<Product | null>(null);
@@ -28,11 +29,35 @@ export default ({productId, backendApiBasePath}: Props) => {
         });
     }, []);
 
+    const numberFormat = new Intl.NumberFormat(locale, { style: 'currency', currency: 'EUR' });
+
     return (
         <div className={styles.App}>
             {product && (
-                <div>
-                    Product: {product.name}
+                <div className={styles.Product}>
+                    <div className={styles.DetailsText}>
+                        <div className={styles.ProductName}>
+                            Product: {product.name}
+                        </div>
+                        <div>
+                            {product.description}
+                        </div>
+                        <div>
+                            <span>Color</span> {product.color}
+                        </div>
+                        <div>
+                            <span>Material</span> {product.material}
+                        </div>
+                        <div>
+                            <span>Price</span>
+                            <div className={styles.ProductPrice}>
+                                {numberFormat.format(product.price)}
+                            </div>
+                        </div>
+                    </div>
+                    <div className={styles.DetailsImage}>
+                        <img width={640} height={480} src={product.imageUrl} alt={product.name}/>
+                    </div>
                 </div>
             )}
             {loading && (
