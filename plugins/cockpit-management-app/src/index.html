@@ -36,7 +36,35 @@
                         }
                     },
                     portalAppService: {
-
+                        loadApp: function(areaId, appName) {
+                          console.info('Opening App', appName, 'in area', areaId);
+                        },
+                        getAvailableApps: function() {
+                            return [{
+                                name: 'Bestsellers',
+                                metaInfo: {
+                                    demoCockpit: {
+                                        viewType: 'Standalone'
+                                    }
+                                }
+                            }, {
+                                name: 'Customer Details',
+                                metaInfo: {
+                                    demoCockpit: {
+                                        viewType: 'Details',
+                                        entity: 'Customer'
+                                    }
+                                }
+                            }, {
+                                name: 'Product Details',
+                                metaInfo: {
+                                    demoCockpit: {
+                                        viewType: 'Details',
+                                        entity: 'Product'
+                                    }
+                                }
+                            }];
+                        }
                     }
                 };
                 window.startCockpitManagementApp(element, portalAppSetup, portalClientServices);

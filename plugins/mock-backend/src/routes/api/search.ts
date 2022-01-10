@@ -33,7 +33,7 @@ export default async (req: Request, res: Response) => {
                 }
             }
         });
-        products.forEach(({productId, name, description, color, material}) => {
+        products.forEach(({productId, name, description, color, material, price}) => {
             if ([name, description, color, material].some((prop) => searchTerms.some((t) => prop.toLowerCase().indexOf(t) !== -1))) {
                 total ++;
                 if (total >= skip && hits.length < limit) {
@@ -43,6 +43,7 @@ export default async (req: Request, res: Response) => {
                         name,
                         color,
                         material,
+                        price,
                     });
                 }
             }

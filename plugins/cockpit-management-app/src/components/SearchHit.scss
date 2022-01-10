@@ -1,0 +1,36 @@
+
+@import "../../common-styles";
+
+.SearchHit {
+    margin-bottom: 20px;
+    display: flex;
+}
+
+.ChipWrapper {
+    align-self: center;
+}
+
+.Chip {
+   @extend %Chip;
+}
+
+.Header {
+    font-size: 1.1em;
+    font-family: $FONT_HEADER;
+}
+
+.SubHeader {
+
+}
+
+.Actions {
+    margin-top: 5px;
+
+    button {
+        margin-right: 10px;
+    }
+}
+
+.OpenAppButton {
+    @extend %OpenAppButton;
+}

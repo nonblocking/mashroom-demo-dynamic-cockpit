@@ -48,7 +48,7 @@ export default ({orderId, locale, backendApiBasePath}: Props) => {
                     <div className={styles.OrderDetailsHeader}>
                         <div>
                             <div className={styles.OrderId}>
-                                Order #{order.orderId}
+                                Order: #{order.orderId}
                             </div>
                             <div>
                                 {dateFormat.format(new Date(order.date))}

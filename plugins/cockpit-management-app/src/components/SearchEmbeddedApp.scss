@@ -1,0 +1,19 @@
+
+@import "../../common-styles";
+
+.SearchEmbeddedApp {
+    margin-bottom: 20px;
+    display: flex;
+}
+
+.Chip {
+    @extend %Chip;
+}
+
+.Actions {
+    margin-top: 5px;
+}
+
+.OpenAppButton {
+    @extend %OpenAppButton;
+}

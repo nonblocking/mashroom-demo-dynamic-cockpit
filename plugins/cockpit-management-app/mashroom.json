@@ -20,6 +20,9 @@
                     "backend": {
                         "targetUri": "http://localhost:5050/backend/api"
                     }
+                },
+                "appConfig": {
+                    "openAppsInArea": "app-area2"
                 }
             }
         }

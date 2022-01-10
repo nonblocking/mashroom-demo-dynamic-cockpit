@@ -3,10 +3,15 @@ $FONT_ICON: 'Font Awesome 5 Free';
 $FONT_DEFAULT: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 $FONT_HEADER: 'Lucida Grande', 'Lucida Sans Unicode', sans-serif;
 
-$COLOR_PRIMARY: #504B88;
-$COLOR_PRIMARY_LIGHT: #655fa7; // 10%
-$COLOR_PRIMARY_DARK: #3d3967; // 10%
-$COLOR_PRIMARY_EXTRA_LIGHT: #f4f3f8; // 55%
+$COLOR_PRIMARY: #645e9d;
+$COLOR_PRIMARY_LIGHT: #938bce;
+$COLOR_PRIMARY_DARK: #36346e;
+$COLOR_PRIMARY_EXTRA_LIGHT: lighten($COLOR_PRIMARY_LIGHT, 25);
+
+//$COLOR_PRIMARY: #504B88;
+//$COLOR_PRIMARY_LIGHT: #655fa7;
+//$COLOR_PRIMARY_DARK: #3d3967;
+//$COLOR_PRIMARY_EXTRA_LIGHT: #f4f3f8;
 
 %OpenAppButton {
     padding: 6px 10px;
@@ -18,4 +23,14 @@ $COLOR_PRIMARY_EXTRA_LIGHT: #f4f3f8; // 55%
         content: "\f35d";
         margin-left: 10px;
     }
+}
+
+%Chip {
+    padding: 2px 10px;
+    background-color: $COLOR_PRIMARY_EXTRA_LIGHT;
+    border: 1px solid $COLOR_PRIMARY;
+    border-radius: 10px;
+    margin-right: 10px;
+    width: 90px;
+    font-size: 0.9em;
 }

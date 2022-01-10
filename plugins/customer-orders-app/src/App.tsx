@@ -61,7 +61,7 @@ export default ({customerId, locale, messageBus, backendApiBasePath}: Props) => 
             {orders && customer && (
                 <div className={styles.Orders}>
                     <div className={styles.OrdersHeader}>
-                        Orders of {customer.prefix} {customer.firstName} {customer.lastName} {customer.suffix}
+                        Orders: {customer.prefix} {customer.firstName} {customer.lastName} {customer.suffix}
                     </div>
                     <table className={styles.OrderList}>
                         <thead>

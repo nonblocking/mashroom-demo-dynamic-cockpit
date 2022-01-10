@@ -27,6 +27,7 @@ export type SearchHitProduct = {
     name: string;
     color: string;
     material: string;
+    price: number;
 }
 
 export type SearchHitOrder = {
