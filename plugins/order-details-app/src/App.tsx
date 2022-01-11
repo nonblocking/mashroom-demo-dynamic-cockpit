@@ -1,16 +1,28 @@
 
 import React, {useState, useEffect} from 'react';
 
+import type {MashroomPortalMessageBus} from "@mashroom/mashroom-portal/type-definitions";
+import type {Customer, Order} from "mock-backend/type-definitions";
+
 import styles from './App.scss';
-import {Customer, Order} from "mock-backend/type-definitions";
 
 type Props = {
     orderId: string;
     locale: string;
     backendApiBasePath: string;
+    messageBus: MashroomPortalMessageBus;
 }
 
-export default ({orderId, locale, backendApiBasePath}: Props) => {
+const openOrderDetails = (productId: string, messageBus: MashroomPortalMessageBus) => {
+    messageBus.publish('DEMO_COCKPIT_OPEN_APP', {
+        name: 'Mashroom Dynamic Cockpit Demo Product Details App',
+        config: {
+            productId,
+        }
+    });
+}
+
+export default ({orderId, locale, backendApiBasePath, messageBus}: Props) => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);
     const [order, setOrder] = useState<Order | null>(null);
@@ -48,7 +60,7 @@ export default ({orderId, locale, backendApiBasePath}: Props) => {
                     <div className={styles.OrderDetailsHeader}>
                         <div>
                             <div className={styles.OrderId}>
-                                Order: #{order.orderId}
+                                Order #{order.orderId}
                             </div>
                             <div>
                                 {dateFormat.format(new Date(order.date))}
@@ -65,7 +77,6 @@ export default ({orderId, locale, backendApiBasePath}: Props) => {
                         <thead>
                         <tr>
                             <th>Order Pos</th>
-                            <th>Product ID</th>
                             <th>Product Name</th>
                             <th>Product Price</th>
                             <th>Quantity</th>
@@ -80,10 +91,7 @@ export default ({orderId, locale, backendApiBasePath}: Props) => {
                                         #{pos.orderPos}
                                     </td>
                                     <td>
-                                        {pos.productId}
-                                    </td>
-                                    <td>
-                                        {pos.productName}
+                                        <a href="javascript:void(0)" onClick={() => openOrderDetails(pos.productId, messageBus)}>{pos.productName}</a>
                                     </td>
                                     <td>
                                         {numberFormat.format(pos.price)}

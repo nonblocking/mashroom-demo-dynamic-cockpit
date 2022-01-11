@@ -13,6 +13,10 @@ $COLOR_PRIMARY_EXTRA_LIGHT: lighten($COLOR_PRIMARY_LIGHT, 25);
 //$COLOR_PRIMARY_DARK: #3d3967;
 //$COLOR_PRIMARY_EXTRA_LIGHT: #f4f3f8;
 
+$COLOR_SECONDARY: #5cc8ff;
+$COLOR_SECONDARY_LIGHT: #96fbff;
+$COLOR_SECONDARY_DARK: #0097cc;
+
 %OpenAppButton {
     padding: 6px 10px;
     cursor: pointer;

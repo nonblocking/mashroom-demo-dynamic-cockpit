@@ -1,5 +1,5 @@
 
-@import "../../common-styles";
+@use "../../common-styles" as *;
 
 .SearchEmbeddedApp {
     margin-bottom: 20px;
@@ -8,10 +8,6 @@
 
 .Chip {
     @extend %Chip;
-}
-
-.Actions {
-    margin-top: 5px;
 }
 
 .OpenAppButton {

@@ -37,7 +37,7 @@ export default ({productId, locale, backendApiBasePath}: Props) => {
                 <div className={styles.Product}>
                     <div className={styles.DetailsText}>
                         <div className={styles.ProductName}>
-                            Product: {product.name}
+                            {product.name}
                         </div>
                         <div>
                             {product.description}

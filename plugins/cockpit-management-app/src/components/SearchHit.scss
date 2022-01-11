@@ -1,5 +1,5 @@
 
-@import "../../common-styles";
+@use "../../common-styles" as *;
 
 .SearchHit {
     margin-bottom: 20px;

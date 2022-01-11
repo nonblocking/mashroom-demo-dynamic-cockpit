@@ -80,14 +80,14 @@ export default ({open, onClose}: Props) => {
                             hits.map((hit, idx) => {
                                 if (hit.type === 'Customer') {
                                     return (
-                                        <SearchHitCustomer key={String(idx)} query={query} hit={hit} closeSearch={onClose} />
+                                        <SearchHitCustomer key={`c_${hit.data.customerId}`} query={query} hit={hit} closeSearch={onClose} />
                                     )
                                 } else if (hit.type === 'Product') {
                                     return (
-                                        <SearchHitProduct key={String(idx)} query={query} hit={hit} closeSearch={onClose} />
+                                        <SearchHitProduct key={`p_${hit.data.productId}`} query={query} hit={hit} closeSearch={onClose} />
                                     );
                                 } else if (hit.type === 'App') {
-                                    return <SearchEmbeddedApp key={String(idx)} app={hit.data} closeSearch={onClose} />
+                                    return <SearchEmbeddedApp key={`a_${hit.data.name}`} app={hit.data} closeSearch={onClose} />
                                 }
                             })
                         }

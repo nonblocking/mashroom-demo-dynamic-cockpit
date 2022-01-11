@@ -17,12 +17,6 @@ type Props = {
 }
 
 export default ({backendApiBasePath, locale, messageBus, portalAppService, openAppsInArea}: Props) => {
-    const [panelOpen, setPanelOpen] = useState(false);
-    useEffect(() => {
-        subscribeToOpenAppMessage(messageBus);
-        return () => unsubscribeToOpenAppMessage(messageBus);
-    }, []);
-
     const dependencyContext = {
         backendApiBasePath,
         locale,
@@ -30,6 +24,12 @@ export default ({backendApiBasePath, locale, messageBus, portalAppService, openA
         portalAppService,
         openAppsInArea
     }
+
+    const [panelOpen, setPanelOpen] = useState(false);
+    useEffect(() => {
+        subscribeToOpenAppMessage(messageBus, dependencyContext);
+        return () => unsubscribeToOpenAppMessage(messageBus);
+    }, []);
 
     return (
         <DependencyContext.Provider value={dependencyContext}>

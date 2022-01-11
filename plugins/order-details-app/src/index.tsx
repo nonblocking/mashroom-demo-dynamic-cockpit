@@ -13,6 +13,7 @@ const bootstrap: MashroomPortalAppPluginBootstrapFunction = (portalAppHostElemen
         orderId={orderId}
         locale={lang}
         backendApiBasePath={backend}
+        messageBus={messageBus}
     />, portalAppHostElement);
 
     return {

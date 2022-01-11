@@ -14,7 +14,7 @@ type Props = {
 }
 
 const openOrderDetails = (orderId: string, messageBus: MashroomPortalMessageBus) => {
-    messageBus.publish('DEMO_COCKPIT_OPEN', {
+    messageBus.publish('DEMO_COCKPIT_OPEN_APP', {
        name: 'Mashroom Dynamic Cockpit Demo Order Details App',
        config: {
            orderId,
@@ -61,7 +61,7 @@ export default ({customerId, locale, messageBus, backendApiBasePath}: Props) => 
             {orders && customer && (
                 <div className={styles.Orders}>
                     <div className={styles.OrdersHeader}>
-                        Orders: {customer.prefix} {customer.firstName} {customer.lastName} {customer.suffix}
+                        Orders of {customer.prefix} {customer.firstName} {customer.lastName} {customer.suffix}
                     </div>
                     <table className={styles.OrderList}>
                         <thead>

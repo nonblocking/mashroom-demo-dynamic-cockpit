@@ -1,5 +1,5 @@
 
-@import "../../common-styles";
+@use "../../common-styles" as *;
 
 .App {
     padding: 10px;
@@ -31,11 +31,10 @@
 }
 
 .DetailsImage {
-    box-shadow: 0 0 4px gray;
-
     img {
         max-width: 100%;
         height: auto;
+        box-shadow: 0 0 4px gray;
     }
 }
 

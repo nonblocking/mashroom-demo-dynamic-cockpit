@@ -45,7 +45,7 @@ export default ({customerId, messageBus, backendApiBasePath}: Props) => {
             {customer && (
                 <div className={styles.Customer}>
                     <div className={styles.CustomerName}>
-                        Customer: {customer.prefix} {customer.firstName} {customer.lastName} {customer.suffix}
+                        {customer.prefix} {customer.firstName} {customer.lastName} {customer.suffix}
                     </div>
                     <div className={styles.CustomerBirthDate}>
                         Birth date: {customer.birthDate.substring(0, 10)}
@@ -58,8 +58,8 @@ export default ({customerId, messageBus, backendApiBasePath}: Props) => {
                         </div>
                         <div className={styles.CustomerContact}>
                             <div className={styles.DetailsHeader}>Contact</div>
-                            <div><span>Mobile 1:</span> {customer.contact.mobile1}</div>
-                            <div><span>Email 1:</span> {customer.contact.email1}</div>
+                            <div><span>Mobile 1:</span> <a href={`tel:${customer.contact.mobile1}`}>{customer.contact.mobile1}</a></div>
+                            <div><span>Email 1:</span> <a href={`mailto:${customer.contact.email1}`}>{customer.contact.email1}</a></div>
                         </div>
                     </div>
                     <div className={styles.Actions}>

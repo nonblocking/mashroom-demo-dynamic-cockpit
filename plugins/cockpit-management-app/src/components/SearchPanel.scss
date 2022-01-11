@@ -1,5 +1,5 @@
 
-@import "../../common-styles";
+@use "../../common-styles" as *;
 
 .SearchPanel {
     padding: 20px;

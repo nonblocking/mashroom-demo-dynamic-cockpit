@@ -1,4 +1,4 @@
-import React, {useContext, useMemo} from 'react';
+import React, {useContext, useMemo, useEffect} from 'react';
 import {nanoid} from "nanoid";
 import openApp from '../openApp';
 import DependencyContext from "../DependencyContext";
@@ -21,6 +21,29 @@ const openInContentArea = (app: DisplayApp, closeSearch: () => void, context: De
 export default ({app, closeSearch}: Props) => {
     const context = useContext(DependencyContext);
     const randomHostId = useMemo(() => nanoid(8), []);
+    useEffect(() => {
+        let unloaded = false;
+        let appId: string | undefined;
+        setTimeout(() => {
+            const host = document.getElementById(randomHostId);
+            if (!host) {
+                return;
+            }
+            host.innerHTML = '';
+            context.portalAppService.loadApp(randomHostId, app.name, undefined).then((app) => {
+                appId = app.id;
+                if (unloaded) {
+                    context.portalAppService.unloadApp(appId);
+                }
+            });
+        }, 100);
+        return () => {
+            if (appId) {
+                context.portalAppService.unloadApp(appId);
+                unloaded = true;
+            }
+        };
+    }, []);
 
     return (
         <div className={styles.SearchEmbeddedApp}>
@@ -31,11 +54,13 @@ export default ({app, closeSearch}: Props) => {
             </div>
             <div className={styles.Details}>
                 <div className={styles.AppWrapper} id={randomHostId}>
-                    TODO: open {app.name}
+                    <div className="mashroom-portal-app-loading">
+                        <span />
+                    </div>
                 </div>
                 <div className={styles.Actions}>
                     <button className={styles.OpenAppButton} onClick={() => openInContentArea(app, closeSearch, context)}>
-                        Open in Content Area
+                        <span>Open in Content Area</span>
                     </button>
                 </div>
             </div>
