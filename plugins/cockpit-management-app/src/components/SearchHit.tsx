@@ -40,7 +40,7 @@ export default ({type, header, subHeader, apps, closeSearch}: Props) => {
                 <div className={styles.Actions}>
                     {apps.map((app) => (
                         <button className={styles.OpenAppButton} onClick={() => openAppInContentArea(app, closeSearch, context)}>
-                            <span>{app.name}</span>
+                            <span>{app.title}</span>
                         </button>
                     ))}
                 </div>

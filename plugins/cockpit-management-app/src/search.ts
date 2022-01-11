@@ -14,7 +14,7 @@ const findStandaloneApps = (query: string, availableCockpitApps: Array<MashroomA
             type: 'App',
             data: {
                 name: app.name,
-                title: /* app.title || */ app.name,
+                title: app.title || app.name,
                 config: {},
             }
         }));
@@ -38,7 +38,7 @@ const augmentSearchResult = (query: string, hits: SearchHits, availableCockpitAp
 
                 return {
                     name: app.name,
-                    title: /* app.title || */ app.name,
+                    title: app.title || app.name,
                     config,
                 };
             });
