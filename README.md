@@ -5,8 +5,8 @@ This demo shows how to create a dynamic cockpit based on a search backend and a 
 
 ![Screenshot](screenshot.png)
 
-It consists of a Portal page with a search that fetches data from a backend and shows it together with Apps, which are able to show details
-for every hit. The possible Apps are determined dynamically based on meta info in the plugin definition:
+It consists of a Portal page with a search that fetches data from a backend and shows it together with Apps, which are able to show the data.
+The possible Apps are determined dynamically based on meta info in the plugin definition:
 
 ```json
     "metaInfo": {
@@ -21,10 +21,10 @@ which means: This App can display details for the search hit entity "Customer".
 
 Notable other features:
 
- * Apps can open other Apps to show some further details (e.g. Customer -> Customer Orders)
- * Apps in then content area can be moved via Drag and Drop
- * Apps can even appear in the search result, if the search terms match the App name, and it does not require any config
-   (enter "bestseller" into the search to try it out)
+ * Apps can open other Apps via message bus to show some further details (e.g. Customer -> Customer Orders)
+ * Apps in the content area can be moved via Drag and Drop
+ * Apps can even appear in the search result, if the search terms match the App name, and the App does not require any config
+   (enter "bestseller" into the search field to try it out)
 
 ## Modules
 
@@ -33,7 +33,7 @@ Notable other features:
  * startup-job: A startup plugin that configures the cockpit page if it doesn't exist yet
  * theme-extension: A page enhancement plugin with some extra style for the cockpit page
 
-All other modules are demo Apps to display some data.
+All other modules are demo Apps to display data.
 
 ## Start the demo
 
