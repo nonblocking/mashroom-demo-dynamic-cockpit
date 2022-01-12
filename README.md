@@ -5,7 +5,7 @@ This demo shows how to create a dynamic cockpit based on a search backend and a 
 
 ![Screenshot](screenshot.png)
 
-It consists of a Portal page with a search that fetches data from a backend and shows it together with Apps, which are able to show the data.
+It consists of a Portal page with a search that fetches data from a backend and shows it together with Apps (SPAs), which are able to show the data.
 The possible Apps are determined dynamically based on meta info in the plugin definition:
 
 ```json
@@ -17,7 +17,7 @@ The possible Apps are determined dynamically based on meta info in the plugin de
     },
 ```
 
-which means: This App can display details for the search hit entity "Customer".
+...which means: This App can display details for the search hit entity "Customer".
 
 Notable other features:
 
@@ -37,8 +37,18 @@ All other modules are demo Apps to display data.
 
 ## Start the demo
 
+Requirements:
+  * Node.js >= 14
+
+
     npm run setup
     cd test/test-server
     npm start
 
+
 The cockpit will be available at http://localhost:5050/portal/web/cockpit - user is: john/john
+
+Notes:
+ * It might take some time until the "Cockpit Demo" page appears, since the plugins need to be built first
+ * If something goes wrong, check the Admin UI: http://localhost:5050/mashroom/admin
+
