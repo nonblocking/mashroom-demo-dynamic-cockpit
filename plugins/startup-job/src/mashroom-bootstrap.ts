@@ -6,17 +6,10 @@ import type {MashroomPortalService, MashroomPortalPage, MashroomPortalAppInstanc
 import type {MashroomBackgroundJobPluginBootstrapFunction} from '@mashroom/mashroom-background-jobs/type-definitions';
 import {MashroomPortalPageRef} from '@mashroom/mashroom-portal/type-definitions/api';
 
-let executed = false;
-
+// This will run only once during startup
 const backgroundJob = (pluginContext: MashroomPluginContext) => {
     const logger = pluginContext.loggerFactory('demo.startupJob');
     const portalService: MashroomPortalService = pluginContext.services.portal.service;
-
-    // Only once
-    if (executed) {
-        return;
-    }
-    executed = true;
 
     setTimeout(async () => {
         const sites = await portalService.getSites();
@@ -24,6 +17,7 @@ const backgroundJob = (pluginContext: MashroomPluginContext) => {
 
         const cockpitExists = defaultSite.pages.find(({pageId}) => pageId === 'cockpit');
         if (!cockpitExists) {
+            logger.info('Setting up cockpit page');
 
             const cockpitManagerAppInstance: MashroomPortalAppInstance = {
                 pluginName: 'Mashroom Dynamic Cockpit Demo Cockpit Management App',

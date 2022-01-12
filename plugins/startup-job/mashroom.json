@@ -10,7 +10,6 @@
                 "Mashroom Portal WebApp"
             ],
             "defaultConfig": {
-                "cronSchedule": "*/1 * * * * *"
             }
         }
     ]
