@@ -3,7 +3,7 @@ const {resolve} = require('path');
 const {writeJsonSync} = require('fs-extra');
 const faker = require('faker');
 
-const NUM_CUSTOMERS = 1000;
+const NUM_CUSTOMERS = 10000;
 const NUM_PRODUCTS = 100;
 const NUM_BESTSELLERS = 10;
 const MAX_ORDERS_PER_CUSTOMER = 5;
@@ -73,12 +73,12 @@ function createProduct(productId) {
 
 function createOrder(orderId, customerId, products) {
     const positions = [];
-    const numberPos = Math.trunc(Math.random() * MAX_POS_PER_ORDER + 1)
+    const numberPos = Math.trunc(Math.random() * MAX_POS_PER_ORDER + 1);
     const date = randomOrderDate();
     let totalPrice = 0;
     for (let i = 0; i < numberPos; i++) {
-        const quantity = Math.trunc(Math.random() * 6)
-        const randomProductIndex = Math.trunc(Math.random() * products.length)
+        const quantity = Math.trunc(Math.random() * 6) + 1;
+        const randomProductIndex = Math.trunc(Math.random() * products.length);
         const product = products[randomProductIndex];
         positions.push({
             orderPos: i + 1,
@@ -100,7 +100,7 @@ function createOrder(orderId, customerId, products) {
 }
 
 function createBestseller(rank) {
-    const randomProductIndex = Math.trunc(Math.random() * products.length)
+    const randomProductIndex = Math.trunc(Math.random() * products.length);
     const product = products[randomProductIndex];
     return {
         rank,
