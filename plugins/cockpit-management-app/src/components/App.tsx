@@ -34,7 +34,7 @@ export default ({backendApiBasePath, locale, messageBus, portalAppService, openA
     return (
         <DependencyContext.Provider value={dependencyContext}>
             <div className={styles.App}>
-                <div className={styles.SearchBar}>
+                <div className={`${styles.SearchBar} ${panelOpen ? styles.PanelOpen : ''}`}>
                     <input type="search" placeholder="Search customers, products, apps, ..." onFocus={() => setPanelOpen(true)} />
                 </div>
                 <SearchPanel

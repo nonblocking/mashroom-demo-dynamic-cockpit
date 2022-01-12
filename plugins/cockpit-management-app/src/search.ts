@@ -1,9 +1,9 @@
 
 import type {MashroomPortalAppService, MashroomAvailablePortalApp} from "@mashroom/mashroom-portal/type-definitions";
-import type {SearchHits} from "mock-backend/type-definitions";
+import type {SearchHits, SearchResult} from "mock-backend/type-definitions";
 import type {CockpitManagementSearchHits, DisplayApps, SearchHitApp} from "./types";
 
-const LIMIT = 25;
+const LIMIT = 20;
 
 const findStandaloneApps = (query: string, availableCockpitApps: Array<MashroomAvailablePortalApp>): Array<SearchHitApp> => {
     const searchTerms = query.split(' ');
@@ -52,14 +52,18 @@ const augmentSearchResult = (query: string, hits: SearchHits, availableCockpitAp
     return results;
 }
 
-export default (query: string, backendApiBasePath: string, portalAppService: MashroomPortalAppService): Promise<CockpitManagementSearchHits> => {
+export default (query: string, page: number, backendApiBasePath: string, portalAppService: MashroomPortalAppService): Promise<{hits: CockpitManagementSearchHits, total: number}> => {
     return Promise.all([
-        fetch(`${backendApiBasePath}/search?q=${query}&limit=${LIMIT}`, {
+        fetch(`${backendApiBasePath}/search?q=${query}&skip=${page * LIMIT}&limit=${LIMIT}`, {
             credentials: 'include',
         }).then(res => res.json()),
         portalAppService.getAvailableApps(),
     ]).then(([result, availableAps]) => {
+        const searchResult = result as SearchResult;
         const availableCockpitApps = availableAps.filter((app) => !!app.metaInfo?.demoCockpit);
-        return augmentSearchResult(query, result.hits, availableCockpitApps);
+        return {
+            hits: augmentSearchResult(query, searchResult.hits, availableCockpitApps),
+            total: searchResult.total,
+        };
     });
 }

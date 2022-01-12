@@ -78,7 +78,7 @@ export default ({orderId, locale, backendApiBasePath, messageBus}: Props) => {
                         <tr>
                             <th>Order Pos</th>
                             <th>Product Name</th>
-                            <th>Product Price</th>
+                            <th className={styles.PriceCol}>Product Price</th>
                             <th>Quantity</th>
                             <th>Price</th>
                         </tr>
@@ -93,7 +93,7 @@ export default ({orderId, locale, backendApiBasePath, messageBus}: Props) => {
                                     <td>
                                         <a href="javascript:void(0)" onClick={() => openOrderDetails(pos.productId, messageBus)}>{pos.productName}</a>
                                     </td>
-                                    <td>
+                                    <td className={styles.PriceCol}>
                                         {numberFormat.format(pos.price)}
                                     </td>
                                     <td>

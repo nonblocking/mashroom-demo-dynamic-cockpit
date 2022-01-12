@@ -17,8 +17,10 @@ type Props = {
 
 export default ({open, onClose}: Props) => {
     const {backendApiBasePath, portalAppService} = useContext(DependencyContext);
-    const [query, setQuery] = useState<string>('');
+    const [query, setQuery] = useState('');
+    const [page, setPage] = useState(0);
     const [hits, setHits] = useState<CockpitManagementSearchHits>([]);
+    const [totalHits, setTotalHits] = useState(0);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false);
     const searchInputRef = useRef<HTMLInputElement>(null);
@@ -40,13 +42,16 @@ export default ({open, onClose}: Props) => {
         if (query.length > 2) {
             setLoading(true);
             setError(false);
-            search(query, backendApiBasePath, portalAppService).then(
-                (hits) => {
+            setPage(0);
+            setTotalHits(0);
+            search(query, 0, backendApiBasePath, portalAppService).then(
+                (result) => {
                     setLoading(false);
-                    setHits(hits);
+                    setHits(result.hits);
+                    setTotalHits(result.total);
                 },
                 (error) => {
-                    console.info('Search failed', error);
+                    console.error('Search failed', error);
                     setLoading(false);
                     setHits([]);
                     setError(true);
@@ -56,6 +61,18 @@ export default ({open, onClose}: Props) => {
             setHits([]);
         }
     }, [query]);
+    useEffect(() => {
+        if (page > 0) {
+            search(query, page, backendApiBasePath, portalAppService).then(
+                (result) => {
+                    setHits([...hits, ...result.hits])
+                },
+                (error) => {
+                    console.error('Search failed', error);
+                }
+            );
+        }
+    }, [page]);
 
     if (!open) {
         return null;
@@ -87,10 +104,17 @@ export default ({open, onClose}: Props) => {
                                         <SearchHitProduct key={`p_${hit.data.productId}`} query={query} hit={hit} closeSearch={onClose} />
                                     );
                                 } else if (hit.type === 'App') {
-                                    return <SearchEmbeddedApp key={`a_${hit.data.name}`} app={hit.data} closeSearch={onClose} />
+                                    return (
+                                        <SearchEmbeddedApp key={`a_${hit.data.name}`} app={hit.data} closeSearch={onClose} />
+                                    );
                                 }
                             })
                         }
+                        {hits.length < totalHits && (
+                            <div className={styles.ShowMore}>
+                                <a href="javascript:void(0)" onClick={() => setPage(page + 1)}>Show more...</a>
+                            </div>
+                        )}
                     </div>
                 )}
                 {loading && hits.length === 0 && (

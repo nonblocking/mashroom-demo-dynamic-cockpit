@@ -6,9 +6,16 @@
 .SearchBar {
     width: 450px;
     margin: 10px auto;
+    min-height: 40px;
 
     input {
         width: 100%;
         font-size: 1.1em;
+    }
+
+    &.PanelOpen {
+        input {
+            display: none;
+        }
     }
 }

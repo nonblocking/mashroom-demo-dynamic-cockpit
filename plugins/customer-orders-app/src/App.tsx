@@ -68,7 +68,7 @@ export default ({customerId, locale, messageBus, backendApiBasePath}: Props) => 
                             <tr>
                                 <th>Order ID</th>
                                 <th>Order Date</th>
-                                <th>Price Total</th>
+                                <th className={styles.PriceCol}>Price Total</th>
                                 <th>&nbsp;</th>
                             </tr>
                         </thead>
@@ -82,7 +82,7 @@ export default ({customerId, locale, messageBus, backendApiBasePath}: Props) => 
                                     <td>
                                         {dateFormat.format(new Date(order.date))}
                                     </td>
-                                    <td>
+                                    <td className={styles.PriceCol}>
                                         {numberFormat.format(order.totalPrice)}
                                     </td>
                                     <td>
