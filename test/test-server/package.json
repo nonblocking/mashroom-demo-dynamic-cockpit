@@ -24,6 +24,7 @@
         "@mashroom/mashroom-portal-remote-messaging-app": "^1.9.3",
         "@mashroom/mashroom-portal-tabify-app": "^1.9.3",
         "@mashroom/mashroom-portal-sandbox-app": "^1.9.3",
+        "@mashroom/mashroom-portal-remote-app-registry": "^1.9.3",
         "@mashroom/mashroom-security": "^1.9.3",
         "@mashroom/mashroom-security-default-login-webapp": "^1.9.3",
         "@mashroom/mashroom-security-provider-simple": "^1.9.3",

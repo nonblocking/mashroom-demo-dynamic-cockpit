@@ -7,8 +7,9 @@ import SearchHitProduct from './SearchHitProduct';
 import SearchEmbeddedApp from './SearchEmbeddedApp';
 import search from '../search';
 
+import type {CockpitManagementSearchHits} from "../types";
+
 import styles from './SearchPanel.scss'
-import {CockpitManagementSearchHits} from "../types";
 
 type Props = {
     open: boolean;
@@ -16,7 +17,7 @@ type Props = {
 }
 
 export default ({open, onClose}: Props) => {
-    const {backendApiBasePath, portalAppService} = useContext(DependencyContext);
+    const {backendApiBasePath, portalAppService, locale} = useContext(DependencyContext);
     const [query, setQuery] = useState('');
     const [page, setPage] = useState(0);
     const [hits, setHits] = useState<CockpitManagementSearchHits>([]);
@@ -44,7 +45,7 @@ export default ({open, onClose}: Props) => {
             setError(false);
             setPage(0);
             setTotalHits(0);
-            search(query, 0, backendApiBasePath, portalAppService).then(
+            search(query, 0, locale, backendApiBasePath, portalAppService).then(
                 (result) => {
                     setLoading(false);
                     setHits(result.hits);
@@ -63,7 +64,7 @@ export default ({open, onClose}: Props) => {
     }, [query]);
     useEffect(() => {
         if (page > 0) {
-            search(query, page, backendApiBasePath, portalAppService).then(
+            search(query, page, locale, backendApiBasePath, portalAppService).then(
                 (result) => {
                     setHits([...hits, ...result.hits])
                 },

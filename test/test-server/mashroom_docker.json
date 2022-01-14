@@ -4,12 +4,10 @@
     "port": 5050,
     "pluginPackageFolders": [
         {
-            "path": "./node_modules/@mashroom",
-            "devMode": false
+            "path": "./node_modules/@mashroom"
         },
         {
-            "path": "../../plugins",
-            "devMode": true
+            "path": "../../plugins"
         }],
     "indexPage": "/portal",
     "plugins": {

@@ -19,12 +19,17 @@ The possible Apps are determined dynamically based on meta info in the plugin de
 
 ...which means: This App can display details for the search hit entity "Customer".
 
+So, this concept allows it to extend the cockpit dynamically by just registering new Apps
+(which can also happen dynamically and even without a Portal restart in case of *Remote Apps*).
+
 Notable other features:
 
  * Apps can open other Apps via message bus to show some further details (e.g. Customer -> Customer Orders)
  * Apps in the content area can be moved via Drag and Drop
  * Apps can even appear in the search result, if the search terms match the App name, and the App does not require any config
    (enter "bestseller" into the search field to try it out)
+ * The Cockpit also integrates the Demo Remote App from http://demo-remote-app.mashroom-server.com - so if you enter "chuck"
+   in the search you will see a random Chuck Norris joke ;-)
 
 ## Modules
 
@@ -52,3 +57,7 @@ Notes:
  * It might take some time until the "Cockpit Demo" page appears, since the plugins need to be built first
  * If something goes wrong, check the Admin UI: http://localhost:5050/mashroom/admin
 
+### Using Docker
+
+    docker build -t mashroom-demo-dynamic-cockpit .
+    docker run -e NODE_ENV=production -p 5050:5050 mashroom-demo-dynamic-cockpit
