@@ -13,7 +13,7 @@ RUN ./node_modules/.bin/lerna clean --yes
 # Actual image
 FROM node:16-slim
 WORKDIR /opt/app
-COPY --from=builder /opt/app/*.json ./
+COPY *.json ./
 COPY --from=builder /opt/app/test ./test
 COPY --from=builder /opt/app/plugins ./plugins
 RUN npm ci --production && NODE_ENV=production ./node_modules/.bin/lerna bootstrap --ci
