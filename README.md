@@ -9,12 +9,23 @@ It consists of a Portal page with a search that fetches data from a backend and 
 The possible Apps are determined dynamically based on meta info in the plugin definition:
 
 ```json
-    "metaInfo": {
-        "demoCockpit": {
-            "viewType": "Details",
-            "entity": "Customer"
+{
+    "plugins": [
+        {
+            "name": "Mashroom Dynamic Cockpit Demo Customer Details App",
+            // ...
+            "defaultConfig": {
+                "metaInfo": {
+                    "demoCockpit": {
+                        "viewType": "Details",
+                        "entity": "Customer"
+                    }
+                },
+                // ...
+            }
         }
-    },
+    ]
+}
 ```
 
 ...which means: This App can display details for the search hit entity "Customer".
@@ -61,3 +72,7 @@ Notes:
 
     docker build -t mashroom-demo-dynamic-cockpit .
     docker run -e NODE_ENV=production -p 5050:5050 mashroom-demo-dynamic-cockpit
+
+## Article
+
+Check out this blog entry for more details: TODO

@@ -32,7 +32,7 @@ export default ({backendApiBasePath}: Props) => {
             {bestsellers && (
                 <>
                     <div className={styles.BestsellersHeader}>
-                        Best Sellers
+                        Bestsellers
                     </div>
                     <div className={styles.Bestsellers}>
                         <div className={styles.FiveProducts}>
