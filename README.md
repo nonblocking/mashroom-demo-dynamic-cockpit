@@ -1,7 +1,7 @@
 
 # Mashroom Dynamic Cockpit Demo
 
-This demo shows how to create a dynamic cockpit based on a search backend and a bunch of SPAs with [Mashroom Portal](https://www.mashroom-server.com).
+This demo shows how to create a dynamic cockpit based on a search backend and a bunch of SPAs with [Mashroom Portal](https://github.com/nonblocking/mashroom).
 
 ![Screenshot](screenshot.png)
 
@@ -78,4 +78,4 @@ Notes:
 
 ## Article
 
-Check out this blog entry for more details: TODO
+Check out this blog entry for more details: [https://medium.com/mashroom-server/building-dynamic-cockpits-with-mashroom-portal-7ffa5f990520](https://medium.com/mashroom-server/building-dynamic-cockpits-with-mashroom-portal-7ffa5f990520)
