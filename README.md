@@ -5,7 +5,10 @@ This demo shows how to create a dynamic cockpit based on a search backend and a 
 
 ![Screenshot](screenshot.png)
 
-It consists of a Portal page with a search that fetches data from a backend and shows it together with Apps (SPAs), which are able to show the data.
+The demo consists of a Portal page with a search that fetches results from a backend and at the same times searches for Apps,
+which are able to show some details for the search hits. It also searches Apps by name and displays them inline -
+within the backend search results - if they don't need any input (such as a customerId).
+
 The possible Apps are determined dynamically based on meta info in the plugin definition:
 
 ```json
