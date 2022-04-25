@@ -5,10 +5,10 @@
         "lerna": "^4.0.0"
     },
     "devDependencies": {
-        "@mashroom/mashroom": "^2.0.0",
-        "@mashroom/mashroom-portal": "^2.0.0",
-        "@mashroom/mashroom-background-jobs": "^2.0.0",
-        "@mashroom/mashroom-json-schemas": "^2.0.0",
+        "@mashroom/mashroom": "^2.0.1",
+        "@mashroom/mashroom-portal": "^2.0.1",
+        "@mashroom/mashroom-background-jobs": "^2.0.1",
+        "@mashroom/mashroom-json-schemas": "^2.0.1",
         "@babel/core": "^7.16.7",
         "@babel/cli": "^7.16.7",
         "@babel/preset-env": "^7.16.7",
