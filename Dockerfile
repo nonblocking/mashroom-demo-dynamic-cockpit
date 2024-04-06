@@ -1,5 +1,5 @@
 # Builder
-FROM node:20.12.0-slim as builder
+FROM node:20.12.1-slim as builder
 WORKDIR /opt/app
 COPY package.json package-lock.json common-styles.scss ./
 COPY ./plugins ./plugins
@@ -9,7 +9,7 @@ RUN npm ci
 RUN npm run build
 
 # Actual image
-FROM node:20.12.0-slim
+FROM node:20.12.1-slim
 WORKDIR /opt/app
 COPY *.json ./
 COPY --from=builder /opt/app/test ./test
