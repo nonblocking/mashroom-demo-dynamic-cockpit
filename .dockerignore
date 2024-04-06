@@ -1,2 +1,4 @@
 
 plugins/*/node_modules
+test/*/data
+test/*/log

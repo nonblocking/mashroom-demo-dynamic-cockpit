@@ -4,7 +4,7 @@
     "port": 5050,
     "pluginPackageFolders": [
         {
-            "path": "./node_modules/@mashroom"
+            "path": "../../node_modules/@mashroom"
         },
         {
             "path": "../../plugins"
@@ -46,7 +46,7 @@
         },
         "Mashroom Http Proxy Services": {
             "rejectUnauthorized": false,
-            "poolMaxSockets": 10
+            "poolMaxSocketsPerHost": 10
         }
     }
 }

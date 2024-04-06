@@ -95,7 +95,7 @@ export default ({open, onClose}: Props) => {
                 {hits.length > 0 && (
                     <div className={styles.SearchHits}>
                         {
-                            hits.map((hit, idx) => {
+                            hits.map((hit) => {
                                 if (hit.type === 'Customer') {
                                     return (
                                         <SearchHitCustomer key={`c_${hit.data.customerId}`} query={query} hit={hit} closeSearch={onClose} />

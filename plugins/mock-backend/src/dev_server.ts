@@ -1,13 +1,12 @@
 
 import {createServer} from 'http';
 import express from 'express';
-import cors from 'cors';
-import {dummyLoggerFactory as loggerFactory} from '@mashroom/mashroom-utils/lib/logging_utils';
+import {loggingUtils} from '@mashroom/mashroom-utils';
 import routes from './routes';
 
 // Dummy context
 const pluginContext: any = {
-    loggerFactory,
+    loggerFactory: loggingUtils.dummyLoggerFactory,
     services: {
         core: {
 

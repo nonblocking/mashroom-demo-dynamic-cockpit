@@ -60,7 +60,7 @@ Requirements:
   * Node.js >= 14
 
 
-    npm run setup
+    npm install
     cd test/test-server
     npm start
 
@@ -74,7 +74,7 @@ Notes:
 ### Using Docker
 
     docker build -t mashroom-demo-dynamic-cockpit .
-    docker run -e NODE_ENV=production -p 5050:5050 mashroom-demo-dynamic-cockpit
+    docker run -it -e NODE_ENV=production -p 5050:5050 mashroom-demo-dynamic-cockpit
 
 ## Article
 

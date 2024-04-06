@@ -9,7 +9,7 @@ import {MashroomPortalPageRef} from '@mashroom/mashroom-portal/type-definitions/
 // This will run only once during startup
 const backgroundJob = (pluginContext: MashroomPluginContext) => {
     const logger = pluginContext.loggerFactory('demo.startupJob');
-    const portalService: MashroomPortalService = pluginContext.services.portal.service;
+    const portalService: MashroomPortalService = pluginContext.services.portal!.service;
 
     setTimeout(async () => {
         const sites = await portalService.getSites();
